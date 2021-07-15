@@ -1,0 +1,79 @@
+<table>
+  <tr>
+    <td style="vertical-align: top;">
+      <table style="vertical-align: top;">
+        <tr>
+          <td>
+
+
+        <tr>
+
+          <td>username</td>
+          <td>name</td>
+          <td>email</td>
+          <td></td>
+
+        </tr>
+
+        <tr *ngFor="let user of users">
+
+          <td>{{ user.username }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <a [routerLink]="" (click)="ver('posts', user)">posts</a>
+            
+            <a [routerLink]="" (click)="ver('todos', user)">todos</a>
+          </td>
+
+        </tr>
+      </table>
+
+
+    </td>
+    <td>
+      <div *ngFor="let post of posts ">
+        <div>
+         <strong> {{post.title}} </strong>
+        </div>
+        <div>
+          {{post.body}}
+        </div>
+        <div>
+          Comments:
+          <ul>
+          <li *ngFor="let comment of post['comments']">
+            {{comment.name}}
+          </li>
+          </ul>
+        </div>
+      </div>
+      <div *ngFor="let todo of todos$ | async">
+        <div>
+          {{todo.id}}
+        </div>
+        <div>
+          {{todo.title}}
+        </div>
+        <div>
+          {{todo.completed}}
+        </div>
+      </div>
+      <div *ngIf="canAddTodo">
+        <div class="form-group">
+          <label for="title">Título</label>
+          <input type="text" class="form-control" id="title"
+                 required
+                 [(ngModel)]="todo.title" name="title">
+        </div>
+        
+        <div class="form-group">
+          <label for="completed"> completed</label>
+          <input type="checkbox"    id="completed"
+                 [(ngModel)]="todo.completed" name="completed">
+        </div>
+        <input type="button" (click)="save()" value="Guardar" >
+      </div>
+    </td>
+  </tr>
+  <table>

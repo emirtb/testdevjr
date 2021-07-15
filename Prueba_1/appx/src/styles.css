@@ -1,0 +1,14 @@
+/* Add application styles & imports to this file! */
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans|Oswald|Raleway|Roboto');
+
+/* Boostrap */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+* {
+  font-family: 'Raleway', 'Oswald', 'Lato', 'Roboto', 'Open Sans', 'Montserrat', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
